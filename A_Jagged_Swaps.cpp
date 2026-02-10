@@ -10,10 +10,12 @@ int main() {
     cin >> t;
     
     while (t--) {
-        int n;cin>>n;
-        if(n%3==2) cout<<"First"<<endl;
-        else if(n%3==1) cout<<"First"<<endl;
-        else cout<<"Second"<<endl;
+       int n;cin>>n;
+       vector<int> a(n);
+       for(int i=0; i<n; i++) cin>>a[i];
+       bool flag=true;
+       if(a[0]!=1) flag=false;     
+       cout<<(flag?"YES":"NO")<<endl;
     }
     
     return 0;
