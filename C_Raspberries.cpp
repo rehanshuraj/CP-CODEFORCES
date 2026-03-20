@@ -17,7 +17,7 @@ int main(){
             ans=min(ans,(k-(a[i]%k)));
         }
         if(k==4){
-            if(cnteven==2) ans=min(ans,0LL);
+            if(cnteven>=2) ans=min(ans,0LL);
             else if(cnteven==1) ans=min(ans,1LL);
             else ans=min(ans,2LL);
         }
