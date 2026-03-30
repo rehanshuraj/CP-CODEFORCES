@@ -5,16 +5,15 @@ int main(){
     while(t--){
         int n,k;cin>>n>>k;
         string s;cin>>s;
-        int i=0,j=0;
-        int ans=0;
-        while(j<n){
-           if(s[i]=='B' && s[i]==s[j]) j++;
-           else{
-            if((j-i+1)<k){
-                ans+=(k-(j-i+1));
-            }
-            i=j+1;
-           }
+        vector<int> prefix(n+1);
+        int curr=0;
+        for(int i=0;i<n; i++){
+            if(s[i]=='W') curr++;
+            prefix[i+1]=curr;
+        }
+        int ans=INT_MAX;
+        for(int i=k; i<=n; i++){
+            ans=min(ans,prefix[i]-prefix[i-k]);
         }
         cout<<ans<<endl;
     }
