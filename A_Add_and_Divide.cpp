@@ -4,6 +4,7 @@ using namespace std;
 int main(){
     int t; cin >> t;
     while(t--){
+        // a/b + 1
         long long a, b; cin >> a >> b;
         long long op = 0;
         long long mini=LLONG_MAX;
