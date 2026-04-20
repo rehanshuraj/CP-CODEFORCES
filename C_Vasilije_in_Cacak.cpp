@@ -1,27 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int t;
-    cin >> t;
-    while (t--) {
-      int n,k;
-      cin>>n>>k;
-      string s;cin>>s;
-      vector<int> freq(26,0);
-      for(char ch: s) freq[ch-'a']++;
-      int odd=0;
-      for(int i=0; i<26; i++){
-        odd+=freq[i]%2;
-      }
-      if(odd>k+1){
-        cout<<"NO"<<endl;
-      }
-      else cout<<"YES"<<endl;
+int main()
+{
+	int t;
+	cin >> t; // Read the number of test cases
+	while (t--)
+	{
+		long long n, k, x;
+		cin >> n >> k >> x; // Read n, k, x for each test case
 
-    }
-    return 0;
+		// Calculate the minimum possible sum of k distinct integers
+		// This is the sum of the first k natural numbers
+		long long minimum_sum = (k * (k + 1)) / 2;
+
+		// Calculate the maximum possible sum of k distinct integers
+		// This is the sum of the largest k numbers from 1 to n
+		long long maximum_sum = (n * (n + 1)) / 2 - ((n - k) * (n - k + 1)) / 2;
+
+		// Check if x is within the range of possible sums
+		if (x >= minimum_sum && x <= maximum_sum)
+			cout << "YES" << endl; // If yes, print "YES"
+		else
+			cout << "NO" << endl; // Otherwise, print "NO"
+	}
+	return 0;
 }
 
+// Time Complexity (TC): O(1)
+// Space Complexity (SC): O(1)
